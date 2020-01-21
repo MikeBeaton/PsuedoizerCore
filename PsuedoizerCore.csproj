@@ -2,31 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
-  <!-- Fix to make PDB (for step-in debugging) and XML (for IntelliSense) work in our NuGet file as
-       they should do anyway, but don't currently in .NET Core 3 https://github.com/dotnet/sdk/issues/1458#issuecomment-401497095 -->
-  <Target Name="_ResolveCopyLocalNuGetPackagePdbsAndXml" 
-      Condition="$(CopyLocalLockFileAssemblies) == true" 
-      AfterTargets="ResolveReferences">
-    <ItemGroup>
-    <ReferenceCopyLocalPaths 
-        Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).pdb')" 
-        Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' != ''
-        and Exists('%(RootDir)%(Directory)%(Filename).pdb')" />
-    <ReferenceCopyLocalPaths 
-        Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).xml')" 
-        Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' != ''
-        and Exists('%(RootDir)%(Directory)%(Filename).xml')" />
-    </ItemGroup>
-  </Target>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+    <PackageReference Include="SourceLink.Copy.PdbFiles" Version="2.8.3" PrivateAssets="All"/>
   </ItemGroup>  
 
 </Project>
