@@ -3,8 +3,16 @@ using System.Text;
 
 namespace Utils
 {
+    /// <summary>
+    /// This is a public comment on the <see cref="Pseudoizer"/> class
+    /// </summary>
     public class Pseudoizer
     {
+        /// <summary>
+        /// Convert input string to a fake internationalized output string
+        /// </summary>
+        /// <param name="inputString">The input</param>
+        /// <returns>The fake internationalized output</returns>
         public static String ConvertToFakeInternationalized(String inputString)
         {
 
