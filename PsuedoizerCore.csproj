@@ -2,11 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>0.3.4</Version>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DebugSymbols>False</DebugSymbols>
-    <DebugType>Embedded</DebugType>
-    <EmbedAllSources>True</EmbedAllSources>
+    <Version>0.3.5</Version>
+    <DebugType>embedded</DebugType>
+	<EmbedAllSources>True</EmbedAllSources>
   </PropertyGroup>
 
 </Project>
